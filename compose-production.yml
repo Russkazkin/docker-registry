@@ -1,20 +1,9 @@
 services:
-  nginx:
-    image: nginx:alpine
-    restart: always
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - /etc/letsencrypt:/etc/letsencrypt:ro
-      - /var/www/html:/var/www/html:ro
-      - ./docker/production/nginx/conf.d:/etc/nginx/conf.d:ro
-      - ./htpasswd:/etc/nginx/auth/htpasswd:ro
-    depends_on:
-      - registry
   registry:
     image: registry:2
     restart: always
+    ports:
+      - "5000:5000"
     volumes:
       - /mnt/registry/registry:/var/lib/registry
 volumes:
