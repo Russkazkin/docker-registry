@@ -1,15 +1,8 @@
 ---
--   name: Add Certbot repository
-    apt_repository:
-      repo: 'deb http://ftp.debian.org/debian bookworm-backports main'
-      state: present
-      filename: bookworm-backports
-      update_cache: yes
 -   name: Install Certbot
     apt:
       name: certbot
       state: present
-      default_release: bookworm-backports
       update_cache: yes
 -   name: Copy Certbot configuration
     copy:
