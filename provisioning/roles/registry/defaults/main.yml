@@ -1,3 +1,4 @@
 certbot_email: mail@mywebdev.ru
 certbot_hosts:
   - docker-registry.mywebdev.ru
+  - cache-docker-registry.mywebdev.ru

@@ -11,5 +11,18 @@ services:
     volumes:
       - ./htpasswd:/auth/htpasswd
       - /mnt/registry/registry:/var/lib/registry
+
+  cache-registry:
+    image: registry:2
+    restart: always
+    environment:
+      REGISTRY_PROXY_REMOTEURL: https://registry-1.docker.io
+      REGISTRY_STORAGE_DELETE_ENABLED: 1
+    ports:
+      - "5001:5000"
+    volumes:
+      - /mnt/registry/cache-registry:/var/lib/registry
+
 volumes:
   registry:
+  cache-registry:
